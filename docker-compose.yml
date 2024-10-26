@@ -57,13 +57,15 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4000:80"
-      # - "4000:4000"
     networks:
       - app-network
     volumes: 
       - ./suricata-metrics:/var/run    
     depends_on:
       - db
+    # network_mode: "host"
+    cap_add:
+      - NET_ADMIN  # Allow setting eth0 in promiscuous mode
 
   evebox:
     build:
