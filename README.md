@@ -27,7 +27,7 @@ A FAIRE:
 BUGS/PROBLEMES
 
 - lors du build du docker-compose, un dossier nomé script se crée et il contient meteo-scrape-psql.py
-- Malgré le chipot sur le mode promesucouis de suricata.yml et sur rules.yml on arrive pas a voir sur le fast.log si cron-serveur se connecte sur la db ou ping.
+- Malgré le chipot sur le mode promesucouis de suricata.yml et sur rules.yml on arrive pas a voir sur le fast.log si cron-serveur se connecte sur la db ou ping. Mais fast.log est modifié lorsque l'on ping suricata en lui même. Donc les régles fonctionnenet mais pas possible de "surveiller" les logs d'autres containeurs. 
 
 ~                                                                                                                                                                          
 ~                                
