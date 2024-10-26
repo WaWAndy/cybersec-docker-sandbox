@@ -12,7 +12,7 @@ FAIT:
 - Conteneur Crontab
      - Cronjobs pour executer des scripts tels que des connexions sur la DB ainsi que des curl et des pings sur le serveur Apache.
 - Conteneur Suricata
-     - Alertes mises en place pour le ping et connexion DB seulement sur le conteneur suricata lui même sur apache2.
+     - Alertes mises en place pour le ping seulement sur le conteneur Suricata lui même. fast.log ne reprend que les alertes sur suricata. 
 - Conteneur Graphana
      - GUI fonctionne sur le port 3000
      - Possibilité de rajouter prometheus avec l'adresse http://prometheus:9090 dans les data sources.
