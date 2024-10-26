@@ -1,0 +1,81 @@
+=============================QUESTIONS============================
+
+- Comment faire pour avoir de la persistance du containeur et pas passer par un bid mount? 
+
+- AU lieu d'un dockerfile pour un containeur est ce ce l'on peut passer juste par un .yml? Si j'ai bien compris le .YML sert à faire le lien avec pleins de modules et autres containeurs. 
+
+===============================================================
+
+PROBLEMES:
+
+- Je n'arrive pas à peupler la DB lors de la création de l'ensemble des containeurs. 
+
+- problemes avec evebox donc pas moyen d'avoir suricata en web-browser
+
+- je n'ai pas verifié si les crontabs fonctionnent. LE crontab ne fonctionne pas mais les alertes ping fontionne lorsque l'on ping la machine suricata. Mais cela n'a pas beaucoup de sens de piger direct ce containeur. DOnc le but va faire en sorte que docker-supervisor ping apache 2 et que suricata s'en rende compte.
+
+
+=====================================================================
+
+TO DO: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+OLD stuff
+
+
+
+Projet: trois containeurs docker pour appli meteo web (un scrape python, un db postgressql, un apache2 php/css/html). Tous accessibles depuis l'exterieur. Enfin un serveur de controle pour tout l'aspect cybetsecurité et crer un sandbox simple pour des questions de cyber.
+
+creer un container db postgressql OK 
+
+creer un container de scrape python OK 
+
+creer un container apache2 pour afficher le contenu de la db OK 
+
+ping DB <=====> scraper OK 
+
+Injection scraper =====> DB 
+
+Lorsque la DB se build faire en sorte que la la table weather_db soit crée au minimum. RESTE ERREURS DANS PYTHON ALORS CRASH 
+
+Persitance avec les trois containeurs: DB OK PYthon(/app/data) OK Apache OK /var/www/html
+
+COnnection sur db depuis mon ordi linux(hote): OK psql -h 172.17.0.3 -U user -d testdb 
+
+Faire en sorte qu'avec mon pc fixe que je puisse ping tous les autres containers hosts sur le protable et vice versa 
+
+Tous les containeurs doivent pouvoir se ping entre eux et faire les connections TCP/IP sur les ports correspondants
+
+scrape injecte dans DB qui est dispo pour apache2  
+
+Faire en sorte que j'accède au containeurs depuis mon portable en TCP/IP
+
+faire en sorte que je puisse acéder aux conteneurs depuis l'exterieur
+
+TOute la partie cybersécurité.

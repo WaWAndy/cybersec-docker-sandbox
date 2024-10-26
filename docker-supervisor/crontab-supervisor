@@ -1,0 +1,9 @@
+# Exécuter un test ping toutes les minutes
+* * * * * root /usr/local/bin/test-ping.sh >> /var/log/cron.log 2>&1
+
+# Exécuter une requête HTTP avec curl toutes les minutes
+* * * * * root /usr/local/bin/test-curl.sh >> /var/log/cron.log 2>&1
+
+# Exécuter un test de base de données toutes les 3 minutes
+*/3 * * * * root /usr/local/bin/test-db.sh >> /var/log/cron.log 2>&1
+

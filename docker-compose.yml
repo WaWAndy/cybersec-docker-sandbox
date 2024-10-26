@@ -1,0 +1,127 @@
+services:
+  db:
+    build:
+      context: ./docker-db  # Directory where the Dockerfile for the db is located
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_DB: weather_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./docker-db/table_create_weather_data.sql:/docker-entrypoint-initdb.d/table_create_weather_data.sql
+        # - ./scripts/meteo-scrape-psql.py:/docker-entrypoint-initdb.d/meteo-scrape-pgsql.py  # Add your Python script here
+      - ./scripts/meteo-scrape-pgsql.py:/opt/python-scripts/meteo-scrape-pgsql.py
+    networks:
+      - app-network
+        
+  python-scraper:
+    build:
+      context: ./docker-scrape  # Directory where the Dockerfile for python-scraper is located
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db  # Database service name
+      DB_NAME: weather_db
+      DB_USER: user
+      DB_PASS: password
+    volumes:
+      - app_data:/app/data
+    networks:
+      - app-network
+
+  apache-server:
+    build:
+      context: ./docker-apache
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: weather_db
+      DB_USER: user
+      DB_PASS: password
+    ports:
+      - "8080:80"
+    volumes:
+      - ./docker-apache/html:/var/www/html
+    networks:
+      - app-network
+
+  suricata:
+    build:
+      context: ./docker-suricata
+      dockerfile: Dockerfile
+    ports:
+      - "4000:80"
+      # - "4000:4000"
+    networks:
+      - app-network
+    volumes: 
+      - ./suricata-metrics:/var/run    
+    depends_on:
+      - db
+
+  evebox:
+    build:
+      context: ./docker-evebox
+      dockerfile: Dockerfile
+    ports:
+      - "5636:5636"
+    networks:
+      - app-network
+
+  cron-tester:
+    build:
+      context: ./docker-supervisor
+      dockerfile: Dockerfile
+    environment:
+      PGPASSWORD: password
+    networks:
+      - app-network
+
+  node-exporter:
+    image: prom/node-exporter:latest
+    ports:
+      - "9100:9100"
+    networks:
+      - app-network
+
+  grafana:
+    build:
+      context: ./docker-grafana  # Directory where your custom Dockerfile for Grafana is located
+      dockerfile: Dockerfile  # Use your custom Dockerfile here
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - app-network
+
+volumes:
+  db_data:
+  app_data:
+  apache_data:
+  grafana_data:
+
+networks:
+  app-network:
+    driver: bridge
+

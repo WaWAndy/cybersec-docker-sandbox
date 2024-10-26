@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'database'
+    static_configs:
+      - targets: ['db:5432']  # Monitoring PostgreSQL database container
+
+  - job_name: 'apache-server'
+    static_configs:
+      - targets: ['apache-server:8080']  # Monitoring Apache on port 80 (replace with the actual metrics port if different)
+
+        # - job_name: 'python-scraper'
+        # static_configs:
+        # - targets: ['python-scraper:80']  # Monitoring Python scraper (replace port with actual metrics endpoint)
+

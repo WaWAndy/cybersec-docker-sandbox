@@ -1,0 +1,11 @@
+requests
+pandas
+simplejson
+numpy
+pyyaml
+beautifulsoup4
+datefinder
+DateTime
+matplotlib
+icecream
+psycopg2
