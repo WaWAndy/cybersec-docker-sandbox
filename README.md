@@ -18,9 +18,12 @@ FAIT:
      - Possibilité de rajouter prometheus avec l'adresse http://prometheus:9090 dans les data sources.
 - Conteneur Prometheus:
      - Disponible en GUI sur le port 9090
-- Contenneur Suricata
-     - Ajout de règles dans suricata.rules 
-- Conteneur Evebox
+- Conteneur Suricata
+     - Ajout de règles dans suricata.rules
+- conteneur Nodeexporter:
+     - 
+- Conteneur Evebox:
+     - 
 
  WATCHLIST SURICATA: 
     - ping: OK
