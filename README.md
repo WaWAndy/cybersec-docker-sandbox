@@ -4,7 +4,7 @@ FAIT:
 
 - Conteneur Python
     - Scrape des données sur meteo.be et envoi des données vers la DB.
-    - Scrape initial lors du build pour peupler la DB. 
+    - Scrape lors du build pour peupler la DB. 
 - Conteneur DB Postgress
      - Création de la DB lors du build
 - Conteneur Apache2
