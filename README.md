@@ -20,11 +20,8 @@ FAIT:
      - Disponible en GUI sur le port 9090
 - Conteneur Suricata
      - Ajout de règles dans suricata.rules
-- conteneur Nodeexporter:
-     - 
-- Conteneur Evebox:
-     - 
-
+- conteneur Nodeexporter
+- Conteneur Evebox
  WATCHLIST SURICATA: 
     - ping: OK
     - connection DB: 
