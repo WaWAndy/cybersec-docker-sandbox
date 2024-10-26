@@ -3,26 +3,33 @@
 FAIT:
 
 - Conteneur Python
-    - Scrape des données sur meteo.be et envoi des données vers la DB
-    - Scrape initial lors du build pour peupler la DB
-- Containeur DB Postgress
-     - Creation de la DB lors du build
-- Containeur Apache2
+    - Scrape des données sur meteo.be et envoi des données vers la DB.
+    - Scrape initial lors du build pour peupler la DB. 
+- Conteneur DB Postgress
+     - Création de la DB lors du build
+- Conteneur Apache2
      - afficher les résultats des scrapes via CSS/HTML PHP
-- Containeur Crontab
-     - Cronjob pour executer des scripts tels que des connexions sur la db ainsi que des curl et des pings sur le serveur Apache.
+- Conteneur Crontab
+     - Cronjobs pour executer des scripts tels que des connexions sur la DB ainsi que des curl et des pings sur le serveur Apache.
 - Conteneur Suricata
-     - Alertes mises en place pour le ping seulement sur le containair suricata lui même sur apache2.
+     - Alertes mises en place pour le ping et connexion DB seulement sur le conteneur suricata lui même sur apache2.
 - Conteneur Graphana
      - GUI fonctionne sur le port 3000
      - Possibilité de rajouter prometheus avec l'adresse http://prometheus:9090 dans les data sources.
 
 - Containeur Evebox 
 
+WATCHLIST SURICATA
+    - ping: OK
+    - connection DB: 
+    - effectuer un SELECT: 
+    - injection sql: 
+    - ... 
+
+
 A FAIRE:
 
 - Supprimer Evebox
-- 
 
 BUGS/PROBLEMES
 
