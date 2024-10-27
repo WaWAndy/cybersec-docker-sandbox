@@ -299,14 +299,14 @@ outputs:
         - nfs
         - smb
         - tftp
-        - ike
+          #- ike
         - dcerpc
         - krb5
-        - bittorrent-dht
+          #- bittorrent-dht
         - snmp
         - rfb
         - sip
-        - quic:
+          #- quic:
             # ja4 hashes in quic records will never be logged unless
             # the following is set to on. (Default off)
             # ja4: off
