@@ -31,7 +31,7 @@ CMD ["/usr/local/bin/wait-for-db.sh"]
 CMD ["/app/first_scrape.sh" ]
 
 # COPY /home/andy/.docker/docker-python-net/python-src/* /opt/python-src
-CMD [ "bash"]
+# CMD [ "bash"]
 ENTRYPOINT ["python3","/opt/python-scripts/meteo-scrape-psql.py"]
 
 CMD tail -f /dev/null
