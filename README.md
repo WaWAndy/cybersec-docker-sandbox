@@ -24,7 +24,8 @@ FAIT:
 - conteneur Nodeexporter
 - Conteneur Evebox
 - Conteneur pgadmin
-    - En vue d'essayer un brute force sur la page d'acceuil. 
+    - En vue d'essayer un brute force sur la page d'acceuil.
+    - disponible port 5050
 
  WATCHLIST SURICATA 
     - ping: OK
