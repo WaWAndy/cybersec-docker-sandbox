@@ -9,7 +9,7 @@ FAIT:
      - Création de la DB lors du build
 - Conteneur Apache2
      - afficher les résultats des scrapes via CSS/HTML PHP
-     - Champ de recherche par ville pour tentatives injections SQL.
+     - Champ de recherche par ville pour tentatives injections SQL (insecure coding, simple POST)
 - Conteneur Crontab
      - Cronjobs pour executer des scripts tels que des connexions sur la DB ainsi que des curl et des pings sur le serveur Apache.
 - Conteneur Suricata
