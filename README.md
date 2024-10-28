@@ -23,13 +23,15 @@ FAIT:
      - Ajout de règles dans suricata.rules
 - conteneur Nodeexporter
 - Conteneur Evebox
+- Conteneur pgadmin
+    - En vue d'essayer un brute force sur la page d'acceuil. 
 
  WATCHLIST SURICATA 
     - ping: OK
     - connection DB: 
     - effectuer un SELECT: 
     - injection sql: 
-    - ... 
+    - Bruteforce
 
 
 A FAIRE:
