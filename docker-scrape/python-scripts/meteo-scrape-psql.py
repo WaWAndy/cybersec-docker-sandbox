@@ -3,6 +3,7 @@ import requests
 from time import sleep
 from datetime import datetime
 import psycopg2
+import time
 
 DB_HOST = 'db'
 DB_NAME = 'weather_db'
@@ -77,7 +78,9 @@ def scrape_weather():
     conn.close()
 
 if __name__ == "__main__":
-    scrape_weather()
-    print("Scraping and insertion completed")
+    while True:
+        scrape_weather()
+        print("Scraping and insertion completed")
+        time.sleep(900)
 
 
