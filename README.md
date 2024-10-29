@@ -29,12 +29,12 @@ FAIT:
     - disponible port 5050.
     - Connexion serveur: HOST=db, DB=scraper_db, USER=user, PASSWORD=password  
 
- WATCHLIST SURICATA 
+- WATCHLIST SURICATA 
     - Ping: OK
-    - Connection DB: 
-    - Effectuer un SELECT: 
-    - Injection sql: 
-    - Bruteforce
+    - Connection DB: ?
+    - COmmandes SQL: ? 
+    - Injection SQL: ?
+    - Bruteforce: ?
 
 
 A FAIRE:
